@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block content %}
+  <style>
+    .page-content {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        color: #000000;
+    }
+    .page-content .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .page-content h1 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    .page-content .block {
+        background-color: #f4f4ff;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .page-content .block:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .page-content .block div {
+        flex: 1;
+        padding: 20px;
+    }
+    .page-content .block.highlight {
+        background-color: #f58220;
+        color: #ffffff;
+    }
+    .page-content .circle-icon {
+        background-color: #000000;
+        color: #ffffff;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .page-content .circle-icon:hover {
+        background-color: #ffffff;
+        color: #000000;
+        transform: scale(1.2);
+    }
+    .page-content .button-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+    .page-content .button {
+        background-color: #000000;
+        color: #ffffff;
+        padding: 15px 30px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: 18px;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .page-content .button:hover {
+        background-color: #444444;
+        transform: scale(1.05);
+    }
+  </style>
+  <div class="page-content">
+    <div class="container">
+        <h1>WEEK & RECIPES</h1>
+        
+        <div class="block highlight">
+            <div>
+                <h2>Рецепты</h2>
+                <p>
+                  Рецепты написаны Екатериной Викторовной вручную, позже переписанные
+                  создателем сайта в веб-версии.
+                </p>
+            </div>
+            <div class="circle-icon">&#10095;</div>
+        </div>
+
+        <div class="block">
+            <div>
+                <h2>Почему 'WEEK & RECIPES'?</h2>
+                <p>
+                  Всё просто! Данный рецептный сайт написан для того, кто
+                  по-настоящему хотел эти рецепты - Виктория, сокращенно 'WEEK'.
+                </p>
+            </div>
+            <div class="circle-icon">&#10095;</div>
+        </div>
+
+        <div class="block">
+            <div>
+                <h2>Функционал</h2>
+                <p>
+                  Данный сайт должен полностью выполнять твои запросы - 
+                  все рецепты в одном месте, выбирай, готовь, радуйся!
+                </p>
+            </div>
+            <div class="circle-icon">&#10095;</div>
+        </div>
+
+        <div class="block">
+            <div>
+                <h2>Нет нужного рецепта?</h2>
+                <p>
+                  Ничего страшного! Создатель всегда сможет дополнить рецептник
+                  чем-то новым, неизведанным, но обязательно вкусным, иначе никак!
+                </p>
+            </div>
+            <div class="circle-icon">&#10095;</div>
+        </div>
+
+        <div class="button-container">
+            <a href="#" class="button">Хочу к вам</a>
+        </div>
+    </div>
+  </div>
+{% endblock %}

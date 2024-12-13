@@ -1,0 +1,86 @@
+{% comment %}
+  Заголовок для каждой страницы - будет повторяться
+  в каждом приложении
+{% endcomment %}
+{% load static %}
+{% with request.resolver_match.view_name as view_name %}
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top shadow-sm" style="background: linear-gradient(90deg, #343a40, #72a7c7);">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="{% url 'homepage:get_homepage' %}">
+        <img src="{% static 'img/logo.png' %}" height="50" class="d-inline-block align-top" alt="" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <span class="ms-2 text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.3); font-size: 24px;">WEEK & RECIPES</span>
+
+      </a>
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link {% if view_name == 'homepage:get_homepage' %}active{% endif %}" 
+               href="{% url 'homepage:get_homepage' %}">
+              Главная
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if view_name == 'recipesapp:get_recipes' %}active{% endif %}" 
+               href="{% url 'recipesapp:get_recipes' %}">
+              Рецепты
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if view_name == 'about:description' %}active{% endif %}" 
+               href="{% url 'about:get_about' %}">
+              О проекте
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+{% endwith %}
+
+<style>
+  .nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    color: white;
+    border-radius: 20px;
+  }
+  .nav-link:hover, .nav-link.active {
+    background-color: #b09fca; 
+    color: #181919;
+    transform: scale(1.1);
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Устанавливаем активную ссылку при загрузке
+    var links = document.querySelectorAll('.nav-link');
+    links.forEach(function(link) {
+      if (link.href === window.location.href) {
+        link.classList.add('active');
+      }
+    });
+
+    // Меняем активное состояние при клике
+    links.forEach(function(link) {
+      link.addEventListener('click', function() {
+        links.forEach(function(el) {
+          el.classList.remove('active');
+        });
+        link.classList.add('active');
+      });
+    });
+  });
+</script>

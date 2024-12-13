@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  Рецепты. Полный список 
+{% endblock %}
+
+{% block content %}
+  <h1>Рецепты</h1>
+  <hr>                        
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    {% for rp in recipes %}
+      <div class="col">
+        <div class="card" style="width: 100%;">
+          {% if rp.id == 0 %}
+            <img src="{% static 'img/sirniki.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 1 %}
+            <img src="{% static 'img/zapekanka.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 2 %}
+            <img src="{% static 'img/meat.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 3 %}
+            <img src="{% static 'img/borsh.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 4 %}
+            <img src="{% static 'img/tefteli.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 5 %}
+            <img src="{% static 'img/pizza.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 6 %}
+            <img src="{% static 'img/solyanka.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 7 %}
+            <img src="{% static 'img/macarones.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 8 %}
+            <img src="{% static 'img/blini.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 9 %}
+            <img src="{% static 'img/chicken.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 10 %}
+            <img src="{% static 'img/oladushki.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 11 %}
+            <img src="{% static 'img/apple.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 12 %}
+            <img src="{% static 'img/pirozhki.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 13 %}
+            <img src="{% static 'img/chicken_soup.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 14 %}
+            <img src="{% static 'img/kotleti.jpg' %}" class="card-img-top" width="200" height="300">
+          {% elif rp.id == 15 %}
+            <img src="{% static 'img/salad.jpg' %}" class="card-img-top" width="200" height="300">
+          {% endif %}
+          <div class="card-body">
+            <h3 class="card-title">{{ rp.name }}</h3>
+            <p class="card-text"><b>Описание:</b> {{ rp.description|truncatewords:8 }}.</p>
+            <a href="{% url 'recipesapp:current_recipe' rp.id %}" class="btn btn-primary">Полный рецепт</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <style>
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .btn-primary {
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .card-text {
+        font-size: 1rem;
+        color: #555;
+    }
+  </style>
+{% endblock %}

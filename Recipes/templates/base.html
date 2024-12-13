@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week & Recipes</title>
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "js/bootstrap.min.js" %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'favicons/favico.png' %}" type="image/x-icon">
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #FFFFFF;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: black;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+        h1 {
+            font-size: 48px;
+            margin: 50px 0;
+        }
+        .description {
+            background-color: #F0F0F0;
+            display: inline-block;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .highlight {
+            background-color: #00BFFF;
+            font-size: 36px;
+            display: inline-block;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .footer-graphics {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .footer-graphics img {
+            width: 50px;
+            margin: 0 10px;
+        }
+        .btn-toggle {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+        .btn-toggle.active {
+            background-color: #28a745;
+        }
+        .pattern-divider {
+            position: relative;
+            height: 50px;
+            background: repeating-linear-gradient(
+                45deg,
+                #FFF,
+                #FFF 10px,
+                #ececec 10px,
+                #ececec 20px
+            );
+        }
+    </style>
+</head>
+<body>
+    {% include 'includes/header.html'%}
+    <main>
+        <h1>WEEK & RECIPES</h1>
+        <div class="description">
+            Место, где ты найдешь уникальное и наилучшее блюдо для любого случая
+        </div>
+        <div class="highlight">ПОПРОБУЙ ВСЕ УЖЕ СЕЙЧАС</div>
+    </main>
+    <div class="pattern-divider"></div>
+    <br>
+    <section>
+        {% block content %}{% endblock %}
+    </section>
+    <script>
+        document.querySelector('.btn-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+        });
+    </script>
+    {% include 'includes/footer.html'%}
+</body>
+</html>

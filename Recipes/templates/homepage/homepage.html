@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block title %}
+  Рецепты. Полный список 
+{% endblock %}
+
+{% block content %}
+<div class="banner">
+  <h1>Начни свой вкусный, манящий и приятный путь!</h1>
+  <p>
+    Выбирай рецепт, смотри ингредиенты, способ приготовления - 
+    можно начинать. Самые популярные блюда:
+  </p>
+  <br><br>
+  <div class="text-overlay">
+    <span class="orange-bg">СЫРНИКИ</span> &nbsp; 
+    <span class="purple-bg">БЛИНЧИКИ</span> &nbsp; 
+    <span class="green-bg">ЗАПЕКАНКА</span> &nbsp;
+    <span class="orange-bg">МЯСО ПО-КАПИТАНСКИ</span> &nbsp; 
+    <span class="purple-bg">ПИЦЦА</span> &nbsp; 
+    <span class="green-bg">СОЛЯНКА</span> &nbsp; 
+    <span class="orange-bg">ОЛАДУШКИ</span> &nbsp; 
+    <span class="purple-bg">ПИРОЖКИ</span> &nbsp; 
+    <span class="green-bg">КОТЛЕТЫ</span> &nbsp; 
+    <span class="orange-bg">КУРИНЫЙ СУП</span> &nbsp;
+    <span class="purple-bg">САЛАТЫ</span> &nbsp; 
+  </div>
+</div>
+
+<div class="button-container">
+  <a href="{% url 'recipesapp:get_recipes' %}" class="button">Перейдите к рецептам</a>
+</div>
+
+<style>
+  .banner {
+      background: linear-gradient(to bottom right, #87CEFA, #FFB6C1);
+      padding: 40px;
+      border-radius: 20px; 
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      color: #000000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .banner h1, .banner p {
+      animation: fadeIn 3s ease-in-out;
+  }
+  .text-overlay {
+      font-size: 24px;
+      text-align: left;
+      display: inline-block;
+      position: absolute;
+      white-space: nowrap;
+      animation: marquee 20s linear infinite;
+      top: 75%;
+      left: 0;
+      color: #000000;
+      transition: color 0.3s, transform 0.3s;
+  }
+  .text-overlay span {
+      padding: 10px 20px;
+      border-radius: 0;
+      margin: 0 5px;
+      cursor: pointer;
+  }
+  .orange-bg {
+      background-color: #FF5722;
+  }
+  .purple-bg {
+      background-color: #DDA0DD;
+  }
+  .green-bg {
+      background-color: #00FF7F;
+  }
+  .button-container {
+      text-align: center;
+      margin-top: 20px;
+  }
+  .button {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 15px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background-color 0.3s, transform 0.3s;
+  }
+  .button:hover {
+      background-color: #444444;
+      transform: scale(1.1);
+  }
+  @keyframes marquee {
+      from {
+          transform: translateX(100%);
+      }
+      to {
+          transform: translateX(-100%);
+      }
+  }
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+</style>
+<br>
+{% endblock %}

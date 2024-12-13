@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Рецепт: {{ recipe.name }}
+{% endblock %}
+
+{% block content %} 
+  <style>
+    .card {
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        background-color: #f9f9f9;
+        margin: 20px auto;
+        max-width: 800px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover; /* Сохраняет пропорции, обрезая изображение по необходимости */
+    }
+    .card-title {
+        font-size: 1.5rem;
+        color: #333;
+    }
+    .card-body {
+        padding: 20px;
+    }
+    .small {
+        color: #777;
+    }
+    p {
+        line-height: 1.6;
+    }
+  </style> 
+
+  <div class="card mb-3">
+    {% if recipe.id == 0 %}
+      <img src="{% static 'img/sirniki.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 1 %}
+      <img src="{% static 'img/zapekanka.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 2 %}
+      <img src="{% static 'img/meat.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 3 %}
+      <img src="{% static 'img/borsh.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 4 %}
+      <img src="{% static 'img/tefteli.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 5 %}
+      <img src="{% static 'img/pizza.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 6 %}
+      <img src="{% static 'img/solyanka.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 7 %}
+      <img src="{% static 'img/macarones.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 8 %}
+      <img src="{% static 'img/blini.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 9 %}
+      <img src="{% static 'img/chicken.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 10 %}
+      <img src="{% static 'img/oladushki.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 11 %}
+      <img src="{% static 'img/apple.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 12 %}
+      <img src="{% static 'img/pirozhki.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 13 %}
+      <img src="{% static 'img/chicken_soup.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 14 %}
+      <img src="{% static 'img/kotleti.jpg' %}" class="card-img-top">
+    {% elif recipe.id == 15 %}
+      <img src="{% static 'img/salad.jpg' %}" class="card-img-top">
+    {% endif %}
+    <div class="card-body">
+        <h1 class="card-title">{{ recipe.name }}</h1>
+        <h3>Ингредиенты:</h3>
+        <p class="card-text">{{ recipe.ingridients }}</p>
+        <h2>Метод приготовления:</h2>
+        <p class="card-text">{{ recipe.method }}</p>
+    </div>  
+  </div>
+{% endblock %}
